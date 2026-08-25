@@ -11,9 +11,14 @@ const app = express();
 app.use(express.json());
 
 // --------------------------------------------------------------------------
+// Static files (corporate website at /public/index.html)
+// --------------------------------------------------------------------------
+app.use(express.static(path.join(__dirname, '../public')));
+
+// --------------------------------------------------------------------------
 // Root + Health — no auth.
 // --------------------------------------------------------------------------
-app.get("/", (_req, res) => res.json({
+app.get("/api", (_req, res) => res.json({
   name: "ENOS Platform API",
   version: "0.1.0",
   status: "ok",
