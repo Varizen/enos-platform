@@ -7,15 +7,17 @@
     "dev": "ts-node-dev --respawn src/server.ts",
     "build": "tsc -p .",
     "start": "node dist/server.js",
-    "migrate": "psql \"$DATABASE_URL\" -f db/001_core_schema.sql && psql \"$DATABASE_URL\" -f db/002_seed_data.sql",
+    "migrate": "node scripts/migrate.js",
     "test": "jest"
   },
   "dependencies": {
+    "@types/qrcode": "^1.5.6",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "nanoid": "^3.3.18",
     "pg": "^8.12.0",
+    "qrcode": "^1.5.4",
     "zod": "^3.23.8"
   },
   "devDependencies": {
