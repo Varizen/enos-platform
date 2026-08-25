@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: enos
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: enos
+    ports:
+      - "5432:5432"
+    volumes:
+      - enos_db_data:/var/lib/postgresql/data
+
+volumes:
+  enos_db_data:
