@@ -9,8 +9,14 @@ const app = express();
 app.use(express.json());
 
 // --------------------------------------------------------------------------
-// Health check — no auth. Used by uptime monitoring / load balancer.
+// Root + Health — no auth.
 // --------------------------------------------------------------------------
+app.get("/", (_req, res) => res.json({
+  name: "ENOS Platform API",
+  version: "0.1.0",
+  status: "ok",
+  docs: "/health"
+}));
 app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
 // --------------------------------------------------------------------------
