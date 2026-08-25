@@ -168,7 +168,7 @@ function showcaseHtml(projects: any[]) {
         <p>${p.description ?? ""}</p>
         <div class="meta">
           <span class="badge">${p.status ?? "active"}</span>
-          <span class="badge dim">${p.id}</span>
+          <span class="badge dim" title="Project ID">${p.id}</span>
         </div>
       </div>`).join("")
     : `<p class="empty">Projects loading — database initialising.</p>`;
@@ -182,6 +182,8 @@ body{font-family:Inter,system-ui,sans-serif;background:#f7f9fc;color:#0a1733;min
 nav{background:#fff;border-bottom:1px solid #e2e7ef;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:18px;letter-spacing:-.03em;color:#0a1733}
 .logo span{color:#0080FA}
+.nav-link{color:#65718a;font-size:14px;text-decoration:none}
+.nav-link:hover{color:#0080FA}
 .hero{padding:64px 32px 40px;max-width:1100px;margin:auto}
 .hero h1{font-size:clamp(32px,5vw,56px);font-weight:800;letter-spacing:-.04em;margin-bottom:14px}
 .hero p{color:#65718a;font-size:18px;max-width:580px}
@@ -198,7 +200,7 @@ nav{background:#fff;border-bottom:1px solid #e2e7ef;padding:0 32px;height:64px;d
 footer{background:#0080FA;color:#fff;padding:40px 32px;text-align:center}
 footer a{color:#fff;opacity:.8;text-decoration:none;margin:0 12px}
 </style></head><body>
-<nav><span class="logo">Vari<span>zen</span></span><a href="https://varizen.co" style="color:#65718a;font-size:14px;text-decoration:none">← varizen.co</a></nav>
+<nav><span class="logo">Vari<span>zen</span></span><a href="https://varizen.co" class="nav-link" title="Visit Varizen">← varizen.co</a></nav>
 <div class="hero"><h1>Varizen Portfolio Showcase</h1><p>Governed projects, verified progress, transparent pipeline.</p></div>
 <div class="grid">${cards}</div>
 <footer><a href="https://varizen.co">varizen.co</a><a href="/investment">Investment</a><a href="/health">API Status</a></footer>
@@ -215,28 +217,33 @@ body{font-family:Inter,system-ui,sans-serif;background:#0a1733;color:#fff;min-he
 nav{background:#0a1733;border-bottom:1px solid #1e2d4a;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-weight:800;font-size:18px;letter-spacing:-.03em}
 .logo span{color:#0080FA}
+.nav-link-dark{color:#8fa3c0;font-size:14px;text-decoration:none}
+.nav-link-dark:hover{color:#0080FA}
 .hero{padding:80px 32px 48px;max-width:900px;margin:auto;text-align:center}
 .hero h1{font-size:clamp(36px,5vw,64px);font-weight:800;letter-spacing:-.04em;margin-bottom:18px}
 .hero p{color:#8fa3c0;font-size:18px;max-width:560px;margin:0 auto 40px}
-.access-box{background:#111f36;border:1px solid #1e2d4a;border-radius:16px;padding:40px;max-width:520px;margin:0 auto}
+.access-box{background:#111f36;border:1px solid #1e2d4a;border-radius:12px;padding:40px;max-width:520px;margin:0 auto}
 .access-box h2{font-size:24px;font-weight:700;margin-bottom:12px}
 .access-box p{color:#8fa3c0;font-size:15px;margin-bottom:28px;line-height:1.6}
 .field{display:grid;gap:8px;margin-bottom:18px;text-align:left}
 .field label{font-size:13px;font-weight:600;color:#c5d4e8}
 .field input{height:46px;background:#0a1733;border:1px solid #1e2d4a;border-radius:8px;color:#fff;padding:0 14px;font-size:15px;width:100%}
 .field input:focus{outline:none;border-color:#0080FA}
-.btn{width:100%;height:48px;background:#0080FA;border:0;border-radius:8px;color:#fff;font-size:16px;font-weight:700;cursor:pointer}
+.field input::placeholder{color:#4a5d7f}
+.btn{width:100%;height:48px;background:#0080FA;border:0;border-radius:8px;color:#fff;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s}
 .btn:hover{background:#0070e0}
+.btn:active{background:#0060cc}
 .note{font-size:12px;color:#65718a;margin-top:14px;text-align:center}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:64px auto;padding:0 32px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:900px;margin:64px auto;padding:0 32px}
 .step{background:#111f36;border:1px solid #1e2d4a;border-radius:12px;padding:24px}
 .step-num{font-size:28px;font-weight:800;color:#0080FA;margin-bottom:10px}
 .step h3{font-size:16px;font-weight:700;margin-bottom:8px}
 .step p{color:#8fa3c0;font-size:14px;line-height:1.5}
 footer{border-top:1px solid #1e2d4a;padding:32px;text-align:center;color:#65718a;font-size:13px}
-footer a{color:#8fa3c0;text-decoration:none;margin:0 10px}
+footer a{color:#8fa3c0;text-decoration:none;margin:0 10px;transition:color .2s}
+footer a:hover{color:#0080FA}
 </style></head><body>
-<nav><span class="logo">Vari<span>zen</span></span><a href="https://varizen.co" style="color:#8fa3c0;font-size:14px;text-decoration:none">← varizen.co</a></nav>
+<nav><span class="logo">Vari<span>zen</span></span><a href="https://varizen.co" class="nav-link-dark" title="Visit Varizen">← varizen.co</a></nav>
 <div class="hero">
   <h1>Varizen Investment Access</h1>
   <p>Controlled, governed access to investment information for qualified reviewers.</p>
